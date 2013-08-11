@@ -1,0 +1,84 @@
+@(active: String)
+
+<div class="navbar-wrapper">
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@routes.Application.index()">
+                    Ankit Tyagi
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav navbar-nav pull-left">
+                        @if(active.equals("homepage")) {
+                            <li class="active">
+                        } else {
+                            <li>
+                        }
+                        <a href="@routes.Application.index()">Home</a>
+                        </li>
+                        @if(active.equals("about")) {
+                            <li class="active">
+                        } else {
+                            <li>
+                        }
+                        <a href="@routes.Application.about()">About</a>
+                        </li>
+                        @if(active.equals("contact")) {
+                            <li class="active">
+                        } else {
+                            <li>
+                        }
+                        <a href="@routes.Application.contact()">Contact</a>
+                        </li>
+                        @if(active.equals("blog")) {
+                            <li class="active">
+                        } else {
+                            <li>
+                        }
+                        <a href="@routes.Application.blog()">Blog</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Login
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-login">
+                                <li>
+                                    @helper.form(
+                                        action = routes.LoginController.login,
+                                        'class -> "form-horizontal"
+                                    ) {
+                                        <div class="form-group">
+                                            <label for="email" class="col-4 control-label">Email: </label>
+                                            <div class="col-8">
+                                                <input type="text" class="form-control" id="email" placeholder="Email Address">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-4 control-label">Password: </label>
+                                            <div class="col-8">
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-8">
+                                                <button type="submit" class="btn btn-default">Sign In</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
