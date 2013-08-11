@@ -1,7 +1,13 @@
-@(message: String)
+@main("Ankit Tyagi - Home") {
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/carousel.css")">
+
+    <div class="navbar-wrapper">
+        <div class="container">
+            @navbar.render()
+        </div>
+    </div>
+    @carousel.render()
+
     
 }
