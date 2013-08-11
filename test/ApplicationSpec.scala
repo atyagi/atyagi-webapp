@@ -4,29 +4,37 @@ import org.specs2.mutable._
 
 import play.api.test._
 import play.api.test.Helpers._
+import play.api.mvc.Result
 
-/**
- * Add your spec here.
- * You can mock out a whole application including requests, plugins etc.
- * For more information, consult the wiki.
- */
 class ApplicationSpec extends Specification {
-  
+
+  def pageHasHtmlAndContainsTest(text: String, page: Result): Boolean = {
+    status(page) must equalTo(OK)
+    contentType(page) must beSome.which(_ == "text/html")
+    contentAsString(page) must contain(text)
+  }
+
   "Application" should {
-    
+
     "send 404 on a bad request" in {
       running(FakeApplication()) {
-        route(FakeRequest(GET, "/boum")) must beNone        
+        route(FakeRequest(GET, "/nonsense")) must beNone
       }
     }
     
     "render the index page" in {
       running(FakeApplication()) {
         val home = route(FakeRequest(GET, "/")).get
-        
-        status(home) must equalTo(OK)
-        contentType(home) must beSome.which(_ == "text/html")
-        contentAsString(home) must contain ("Your new application is ready.")
+
+        pageHasHtmlAndContainsTest("Ankit Tyagi - Home", home)
+      }
+    }
+
+    "render the about page" in {
+      running(FakeApplication()) {
+        val about = route(FakeRequest(GET, "/about")).get
+
+        pageHasHtmlAndContainsTest("Ankit Tyagi - About", about)
       }
     }
   }

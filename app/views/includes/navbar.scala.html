@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@routes.Application.index()">
+                <a id="brand-home" class="navbar-brand" href="@routes.Application.index()">
                     Ankit Tyagi
                 </a>
                 <div class="nav-collapse collapse">
@@ -19,28 +19,28 @@
                         } else {
                             <li>
                         }
-                        <a href="@routes.Application.index()">Home</a>
+                        <a id="homepage" href="@routes.Application.index()">Home</a>
                         </li>
                         @if(active.equals("about")) {
                             <li class="active">
                         } else {
                             <li>
                         }
-                        <a href="@routes.Application.about()">About</a>
+                        <a id="about" href="@routes.Application.about()">About</a>
                         </li>
                         @if(active.equals("contact")) {
                             <li class="active">
                         } else {
                             <li>
                         }
-                        <a href="@routes.Application.contact()">Contact</a>
+                        <a id="contact" href="@routes.Application.contact()">Contact</a>
                         </li>
                         @if(active.equals("blog")) {
                             <li class="active">
                         } else {
                             <li>
                         }
-                        <a href="@routes.Application.blog()">Blog</a>
+                        <a id="blog" href="@routes.Application.blog()">Blog</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
