@@ -13,7 +13,7 @@ object LoginController extends Controller {
   def login = Action { implicit request =>
     loginForm.bindFromRequest.fold(
       formWithErrors => BadRequest(),
-      adminUser => Ok(views.admin.adminHome)
+      adminUser => Ok(views.admin.adminHome())
     )
   }
 
